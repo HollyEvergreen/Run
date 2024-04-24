@@ -16,7 +16,10 @@ public class playerController : MonoBehaviour
     public Camera MainCamera;
     Damage Damage;
 
+    public float MaxHealth;
     public float Health;
+
+    public Material HealthBar;
 
     public bool Firing { get; private set; }
     public float FireStart { get; private set; }
@@ -27,6 +30,7 @@ public class playerController : MonoBehaviour
         inputActions.Enable();
         MainCamera = Camera.main;
         Damage = new Damage(10f, DamageType.NORM);
+
     }
 
     // Update is called once per frame
@@ -48,6 +52,11 @@ public class playerController : MonoBehaviour
         {
             Die();
         }
+
+        HealthBar.SetFloat("_t", Health/MaxHealth);
+        if (Health < MaxHealth) Health += Time.deltaTime * Health *0.15f;
+        if (Health > MaxHealth) Health = MaxHealth;
+
     }
 
     private void Die()

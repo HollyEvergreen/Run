@@ -39,7 +39,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _t: 0.281
+    - _t: 1
     - _yscale: 0.1
     m_Colors:
     - _Tint: {r: 1, g: 0, b: 0, a: 0}
